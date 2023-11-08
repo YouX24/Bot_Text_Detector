@@ -35,18 +35,21 @@ def lemmatizeData(words):
     return lemmatized_words
 
 
-def cleanData(inputFilePath, outputFilePath):
+def cleanData(inputBotFilePath, inputHumanFilePath, outputFilePath):
     with open(outputFilePath, 'w', newline='') as outputFile:
         writer = csv.writer(outputFile)
         
-        with open(inputFilePath, 'r', encoding="latin1") as file:
-            csvreader = csv.reader(file)
+        with open(inputBotFilePath, 'r', encoding="latin1") as file1:
+            csvreader = csv.reader(file1)
             
             for row in csvreader:
-                writer.writerow([cleanTextData(row[0])])
+                writer.writerow([cleanTextData(row[0]), 'bot'])
+        
+        with open(inputHumanFilePath, 'r', encoding="latin1") as file2:
+            csvreader = csv.reader(file2)
+            
+            for row in csvreader:
+                writer.writerow([cleanTextData(row[0]), 'human'])
                 
 
-
-cleanData("data/twitter-human-text.csv", "data/cleaned-twitter-human-text.csv")
-cleanData("data/wiki-bot-text.csv", "data/cleaned-wiki-bot-text.csv")
-cleanData("data/wiki-human-text.csv", "data/cleaned-wiki-human-text.csv")
+cleanData("../data/wiki-bot-text.csv", "../data/wiki-human-text.csv", "../data/cleaned-wiki-text.csv")
