@@ -6,16 +6,18 @@ nltk.download("stopwords")
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+from unidecode import unidecode
 
 
 def cleanTextData(text):
-    text = text.lower() # lowercase string
-    text = re.sub(r"(@\[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|^rt|http.+?", "", text) # remove special chars
-    text = re.sub(r'\d+', '', text) # remove numbers
-    wordsInText = word_tokenize(text) # tokenization
-    filteredTextData = removeStopWords(wordsInText) # remove stop words
-    lemmatizedTextData = lemmatizeData(filteredTextData) # lemmatization
-    return " ".join(lemmatizedTextData)
+    cleaned_text = text.lower() # lowercase string
+    # cleaned_text = re.sub(r"(@\[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|^rt|http.+?", "", text) # remove ALL special chars
+    cleaned_text = re.sub(r'[^\w\s.,!?\'":;()\[\]{}—–-]+|\s+', ' ', cleaned_text) # remove special characters except punctuation
+    # cleaned_text = re.sub(r'\d+', '', text) # remove numbers
+    cleaned_text = unidecode(cleaned_text) # replace accented characters
+    wordsInText = word_tokenize(cleaned_text.strip()) # tokenization    # filteredTextData = removeStopWords(wordsInText) # remove stop words
+    lemmatizedTextData = lemmatizeData(wordsInText) # lemmatization
+    return " ".join(lemmatizedTextData) # remove any spaces from front and end of text, return
 
 
 def removeStopWords(words):
@@ -50,6 +52,7 @@ def cleanData(inputBotFilePath, inputHumanFilePath, outputFilePath):
             
             for row in csvreader:
                 writer.writerow([cleanTextData(row[0]), 'human'])
-                
 
-cleanData("../data/wiki-bot-text.csv", "../data/wiki-human-text.csv", "../data/cleaned-wiki-text.csv")
+
+# cleanData("../data/wiki-bot-text.csv", "../data/wiki-human-text.csv", "../data/cleaned-wiki-text.csv")
+# cleanData("../data/bot-wiki-intro.csv", "../data/human-wiki-intro.csv", "../data/cleaned-wiki-intro-lem.csv")
