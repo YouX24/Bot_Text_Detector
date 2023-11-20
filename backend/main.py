@@ -1,13 +1,17 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Root = endpoint to get data
-@app.route("/text-detection", methods=["GET"])
+@app.route("/detection", methods=["POST"])
 def text_detection():
     data = request.get_json()
+    
     # TODO input data text into ml, return output result as response back to frontend
-    return data["text"]
+    
+    return jsonify(data["text"])
 
 
 if __name__ == "__main__":

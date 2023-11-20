@@ -63,6 +63,18 @@
             const notification = document.getElementById("notification");
             const progressBar = document.getElementById("progressBar");
 
+            async function postData(url = "", data = {}) {
+                const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
+                });
+                return response.json(); // parses JSON response into native JavaScript objects
+            }
+            
+
             checkButton.addEventListener("click", () => {
                 const inputValue = textInput.value;
                 if (inputValue.length < 250) {
@@ -72,6 +84,12 @@
                     setTimeout(() => {
                         notification.style.display = "none";
                     }, 10000);
+                }
+                else {
+                    console.log(typeof inputValue)
+                    postData("http://127.0.0.1:5000/detection", { text: inputValue }).then((data) => {
+                        console.log(data);
+                    });
                 }
             });
         </script>
