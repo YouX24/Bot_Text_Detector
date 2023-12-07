@@ -1,40 +1,53 @@
 import csv
 import re
 import nltk
-nltk.download('punkt')
-nltk.download("stopwords")
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
+# from nltk.corpus import stopwords
+# from nltk.tokenize import word_tokenize
+# from nltk.stem import WordNetLemmatizer
 from unidecode import unidecode
-
+from nltk.sentiment import SentimentIntensityAnalyzer
+nltk.download(["vader_lexicon", "punkt", "stopwords"])
 
 def cleanTextData(text):
     cleaned_text = text.lower() # lowercase string
-    # cleaned_text = re.sub(r"(@\[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|^rt|http.+?", "", text) # remove ALL special chars
     cleaned_text = re.sub(r'[^\w\s.,!?\'":;()\[\]{}—–-]+|\s+', ' ', cleaned_text) # remove special characters except punctuation
-    # cleaned_text = re.sub(r'\d+', '', text) # remove numbers
     cleaned_text = unidecode(cleaned_text) # replace accented characters
-    wordsInText = word_tokenize(cleaned_text.strip()) # tokenization    # filteredTextData = removeStopWords(wordsInText) # remove stop words
-    lemmatizedTextData = lemmatizeData(wordsInText) # lemmatization
-    return " ".join(lemmatizedTextData) # remove any spaces from front and end of text, return
+    return cleaned_text
+
+# def removeStopWords(words):
+#     stop_words = set(stopwords.words("english"))
+#     filteredWords = []
+#     for word in words:
+#         if word not in stop_words:
+#             filteredWords.append(word)
+#     return filteredWords
 
 
-def removeStopWords(words):
-    stop_words = set(stopwords.words("english"))
-    filteredWords = []
-    for word in words:
-        if word not in stop_words:
-            filteredWords.append(word)
-    return filteredWords
+# def lemmatizeData(words):
+#     lemmatizer = WordNetLemmatizer()
+#     lemmatized_words = []
+#     for word in words:
+#         lemmatized_words.append(lemmatizer.lemmatize(word))
+#     return lemmatized_words
 
 
-def lemmatizeData(words):
-    lemmatizer = WordNetLemmatizer()
-    lemmatized_words = []
-    for word in words:
-        lemmatized_words.append(lemmatizer.lemmatize(word))
-    return lemmatized_words
+# get number of unique words
+def uniqueWords(text):
+    unique = set()
+    for word in text.split():
+        if word not in unique:
+            unique.add(word)
+    return len(unique)
+
+
+# get number of punctuations
+import string
+def getNumpunctuation(text):
+    punctCount = 0
+    for c in text:
+        if c in string.punctuation:
+            punctCount += 1
+    return punctCount
 
 
 def cleanData(inputBotFilePath, inputHumanFilePath, outputFilePath):
@@ -45,14 +58,36 @@ def cleanData(inputBotFilePath, inputHumanFilePath, outputFilePath):
             csvreader = csv.reader(file1)
             
             for row in csvreader:
-                writer.writerow([cleanTextData(row[0]), 'bot'])
+                text = cleanTextData(row[0])
+                text_length = len(text)
+                text_unique_words = uniqueWords(text)
+                text_num_punctuation = getNumpunctuation(text)
+                
+                sia = SentimentIntensityAnalyzer()
+                sia_result = sia.polarity_scores(text)
+                text_sentiment_neg = sia_result['neg']
+                text_sentiment_neu = sia_result['neu']
+                text_sentiment_pos = sia_result['pos']
+                
+                writer.writerow([text, text_length, text_unique_words, text_num_punctuation, text_sentiment_neg, text_sentiment_neu, text_sentiment_pos, 1])
         
         with open(inputHumanFilePath, 'r', encoding="latin1") as file2:
             csvreader = csv.reader(file2)
             
             for row in csvreader:
-                writer.writerow([cleanTextData(row[0]), 'human'])
+                text = cleanTextData(row[0])
+                text_length = len(text)
+                text_unique_words = uniqueWords(text)
+                text_num_punctuation = getNumpunctuation(text)
+                
+                sia = SentimentIntensityAnalyzer()
+                sia_result = sia.polarity_scores(text)
+                text_sentiment_neg = sia_result['neg']
+                text_sentiment_neu = sia_result['neu']
+                text_sentiment_pos = sia_result['pos']
+                
+                writer.writerow([text, text_length, text_unique_words, text_num_punctuation, text_sentiment_neg, text_sentiment_neu, text_sentiment_pos, 0])
 
 
-# cleanData("../data/wiki-bot-text.csv", "../data/wiki-human-text.csv", "../data/cleaned-wiki-text.csv")
+cleanData("../data/wiki-bot-text.csv", "../data/wiki-human-text.csv", "../data/cleaned-wiki-text.csv")
 # cleanData("../data/bot-wiki-intro.csv", "../data/human-wiki-intro.csv", "../data/cleaned-wiki-intro-lem.csv")
