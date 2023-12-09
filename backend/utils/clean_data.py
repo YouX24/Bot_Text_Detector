@@ -108,9 +108,9 @@ def cleanData(inputBotFilePath, inputHumanFilePath, outputFilePath):
                 text_sentiment_pos = sia_result['pos']
                 avgSentLen = getAverageSentenceLen(text)
                 kincaidScore = getKincaidScore(text)
-                textPOS = getTextPOS(text)
+                # textPOS = getTextPOS(text)
                 
-                writer.writerow([text, text_length, text_unique_words, text_num_punctuation, text_sentiment_neg, text_sentiment_neu, text_sentiment_pos, avgSentLen, kincaidScore, textPOS, 1])
+                writer.writerow([text, text_length, text_unique_words, text_num_punctuation, text_sentiment_neg, text_sentiment_neu, text_sentiment_pos, avgSentLen, kincaidScore, 1])
         
         with open(inputHumanFilePath, 'r', encoding="latin1") as file2:
             csvreader = csv.reader(file2)
@@ -128,10 +128,9 @@ def cleanData(inputBotFilePath, inputHumanFilePath, outputFilePath):
                 text_sentiment_pos = sia_result['pos']
                 avgSentLen = getAverageSentenceLen(text)
                 kincaidScore = getKincaidScore(text)
-                textPOS = getTextPOS(text)
+                # textPOS = getTextPOS(text)
                 
-                writer.writerow([text, text_length, text_unique_words, text_num_punctuation, text_sentiment_neg, text_sentiment_neu, text_sentiment_pos, avgSentLen, kincaidScore, textPOS, 0])
+                writer.writerow([text, text_length, text_unique_words, text_num_punctuation, text_sentiment_neg, text_sentiment_neu, text_sentiment_pos, avgSentLen, kincaidScore, 0])
 
 
-cleanData("../data/wiki-bot-text.csv", "../data/wiki-human-text.csv", "../data/cleaned-wiki-text.csv")
-# cleanData("../data/bot-wiki-intro.csv", "../data/human-wiki-intro.csv", "../data/cleaned-wiki-intro-lem.csv")
+cleanData("../data/bot-wiki-intro.csv", "../data/human-wiki-intro.csv", "../data/cleaned-wiki-intro.csv")
