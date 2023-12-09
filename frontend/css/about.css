@@ -1,68 +1,71 @@
-#pageFooter {
-    text-align: center;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-position: center center;
+    background: linear-gradient(180deg, #e8eff4, #a5bdcf);
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-attachment: fixed;
+    position: relative;
+    background-size: cover;
+    margin: 0;
+}
+
+.content-container {
     padding: 20px;
+}
+
+.navbar-container {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.what-we-can-do {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.submit {
+    text-align: center;
+    color:rgb(17, 17, 221);
+    font-size: 18px; /* Adjust the font size to make it smaller */
+    padding: 2rem; /* Adjust the padding to make the block smaller */
+    margin: 2rem; /* Adjust the margin to make the block smaller */
+    border-style: solid;
+}
+
+.pageFooter {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
     background-color: #333;
     color: white;
 }
 
-/* Style for the suggestion link */
-#suggestionw {
-    color: #ff5733; /* Change the link color to red */
+.pageFooter > p {
+    margin: 5px;
+    font-size: small;
+}
+
+.suggestionw {
+    color: #ff5733; 
     text-decoration: none;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #e8eff4, #a5bdcf);
+.question {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
 }
-
-.content-container {
-    padding: 20px;
-    display: flex; /* Added display: flex */
-    flex-direction: column; /* Adjust the flex direction as needed */
-
-}
-
-
-.navbar-container {
-    background-color: #D6E2E0;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-.navbar-container {
-    background-color: #D6E2E0;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.content-container {
-    padding: 20px;
-    display: flex; /* Added display: flex */
-    flex-direction: column; /* Adjust the flex direction as needed */
-}
-#what-we-can-do {
-    font-size: 30px; /* Adjust the font size as needed */
-    
-}
-
-/* Optionally, you can also increase the font size of the list items */
-#what-we-can-do ul li {
-    font-size: 18px; /* Adjust the font size for list items */
-}
-
-#Submit {
-  color:rgb(17, 17, 221);
-  font-size: 2vw; /* Adjust the font size to make it smaller */
-  padding: 2vw; /* Adjust the padding to make the block smaller */
-  margin: 1vw; /* Adjust the margin to make the block smaller */
-  border-style: solid;
-}
-
-
-

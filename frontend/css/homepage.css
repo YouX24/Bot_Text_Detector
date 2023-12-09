@@ -1,12 +1,17 @@
-html, body {
-    height: 100%; 
-    margin: 0;   
-}
-
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-position: center center;
+    background: linear-gradient(180deg, #e8eff4, #a5bdcf);
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-attachment: fixed;
+    position: relative;
+    background-size: cover;
+    margin: 0;
 }
 
 .navbar-container {
@@ -19,18 +24,6 @@ body {
 .navbar-container .logo img {
     width: 100px; 
     height: auto;
-}
-
-body {
-    background-position: center center;
-    background: linear-gradient(180deg, #e8eff4, #a5bdcf);
-    padding: 0;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #333;
-    background-attachment: fixed;
-    position: relative;
-    background-size: cover;
 }
 
 .section-heading {
@@ -106,8 +99,6 @@ body {
 }
 
 .pageFooter {
-    /* position: absolute;
-    bottom: 0; */
     margin-top: auto;
     width: 100%;
     text-align: center;
