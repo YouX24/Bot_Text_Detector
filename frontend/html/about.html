@@ -7,22 +7,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/about.css">
     <link rel="stylesheet" href="../css/navbar-container.css">
+    <link rel="stylesheet" href="../css/menu.css">
 </head>
 
 <body>
-
     <div class="navbar-container">
         <nav>
             <div class="logo">
-                <a href="#">Text_Detector</a>
+                <a href="homepage.html">Text Detector</a>
             </div>
-            <ul class="menu">
+            <ul class="menu" id="menu">
                 <li><a href="homepage.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="career.html">Career</a></li>
             </ul>
         </nav>
+        <button id="menu-toggle">Menu</button>
+        <script>
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+        
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("open");
+            });
+        </script>
     </div>
     <div class="content-container">
         <section id="what-we-can-do">

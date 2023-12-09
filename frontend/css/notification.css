@@ -1,23 +1,40 @@
 .notification {
     display: none;
-    top: 100%;
-    left: 0;
     background: #fff;
     border: 1px solid #0d0d0d;
     padding: 10px;
     border-radius: 5px;
     animation: fadeOut 10s linear forwards;
+    width: fit-content;
+}
+
+.center-notification {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification-show {
+    display: block;
+    position: absolute;
 }
 
 .exclamation-mark {
     color: #ff0000;
     font-size: 36px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .notification-content {
     color: #333;
     font-size: 16px;
+    text-align: center;
 }
 
 .progress-bar {
@@ -43,5 +60,3 @@
         width: 100%;
     }
 }
-
-

@@ -7,22 +7,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/career.css">
     <link rel="stylesheet" href="../css/navbar-container.css">
+    <link rel="stylesheet" href="../css/menu.css">
 </head>
 
 <body>
-
     <div class="navbar-container">
         <nav>
             <div class="logo">
-                <a href="#">Text_Detector</a>
+                <a href="homepage.html">Text Detector</a>
             </div>
-            <ul class="menu">
+            <ul class="menu" id="menu">
                 <li><a href="homepage.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="career.html">Career</a></li>
             </ul>
         </nav>
+        <button id="menu-toggle">Menu</button>
+        <script>
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+        
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("open");
+            });
+        </script>
     </div>
     <div class="content-container">
         <section id="ai-revolution">
@@ -43,28 +52,26 @@
             </p>
         </section>
 
-        <section id="image-section">
+        <!-- <section id="image-section">
             <h2>Our Inspiring Images</h2>
-            <!-- First Row - Large Image -->
             <div class="image-row1">
                 <div class="image-container">
-                    <img src="/public/image/image_intro.png" alt="Large Image 1">
+                    <img src="../image/image_intro.png" alt="Large Image 1">
                     <div class="image-text">Large Image 1 Description</div>
                 </div>
             </div>
         
-            <!-- Second Row - Two Small Images -->
             <div class="image-row2">
                 <div class="image-container">
-                    <img src="/public/image/image_intro.png" alt="Small Image 1">
+                    <img src="../image/image_intro.png" alt="Small Image 1">
                     <div class="image-text">Small Image 1 Description</div>
                 </div>
                 <div class="image-container">
-                    <img src="/public/image/image_intro.png" alt="Small Image 2">
+                    <img src="../image/image_intro.png" alt="Small Image 2">
                     <div class="image-text">Small Image 2 Description</div>
                 </div>
             </div>
-        </section>
+        </section> -->
         
         <section id="how-it-began">
             <h2>How it Began</h2>

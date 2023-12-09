@@ -12,32 +12,32 @@
 </head>
 
 <body>
-
     <div class="navbar-container">
         <nav>
             <div class="logo">
-                <a href="#">Text_Detector</a>
+                <a href="homepage.html">Text Detector</a>
             </div>
-                <ul class="menu" id="menu">
-                    <li><a href="homepage.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="career.html">Career</a></li>
-                </ul>
-            </div>
-    <button id="menu-toggle">Menu</button>
-    <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const menu = document.getElementById("menu");
-    
-        menuToggle.addEventListener("click", () => {
-            menu.classList.toggle("open");
-        });
-    </script>
+            <ul class="menu" id="menu">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="career.html">Career</a></li>
+            </ul>
+        </nav>
+        <button id="menu-toggle">Menu</button>
+        <script>
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+        
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("open");
+            });
+        </script>
     </div>
+
     <div class="content">
         <div class="left-section">
-            <p class="section-heading"> More than an AI detector </p>
+            <p class="section-heading"> More than an AI detector</p>
             <p class="section-heading"> Preserve what's human.</p>
             <p class="section-content">Check out our products and get started 👉.</p>
         </div>
@@ -45,7 +45,9 @@
             <p class="question">Was this text written by a human or AI?</p>
             <div class="input-container">
                 <textarea class="text-input" placeholder="Enter text here"></textarea>
-                <button class="check-button" id="checkButton">Check Originally</button>
+            </div>
+            <button class="check-button" id="checkButton">Check Originally</button>
+            <div class="center-notification">
                 <div class="notification" id="notification">
                     <div class="exclamation-mark">!</div>
                     <div class="notification-content">
@@ -55,7 +57,6 @@
                 </div>
             </div>
         </div>
-
 
         <script>
             const textInput = document.querySelector(".text-input");
@@ -74,15 +75,13 @@
                 return response.json(); // parses JSON response into native JavaScript objects
             }
             
-
             checkButton.addEventListener("click", () => {
                 const inputValue = textInput.value;
                 if (inputValue.length < 250) {
-                    notification.style.display = "block";
                     progressBar.style.animation = "progress 10s linear forwards";
-
+                    notification.style.display = "block"
                     setTimeout(() => {
-                        notification.style.display = "none";
+                        notification.style.display = "none"
                     }, 10000);
                 }
                 else {
@@ -95,16 +94,12 @@
         </script>
         
     </div>
-    <footer id="pageFooter">
+
+    <footer class="pageFooter" id="pageFooter">
         <p class="footer">“The best AI checker”</p>
         <p class="footer">Copyright © 2023 HKX All rights reserved.</p>
-        <p class="footer"><a id="suggestionw" href="contact.html" target="_blank">Having suggestions? Tell us!</a></p>
+        <p class="footer"><a class="suggestionw" id="suggestionw" href="contact.html" target="_blank">Having suggestions? Tell us!</a></p>
     </footer>
-
-  
-    
-   
-
 
 </body>
 
