@@ -15,7 +15,9 @@
     <div class="navbar-container">
         <nav>
             <div class="logo">
-                <a href="homepage.html">Text Detector</a>
+                <a href="homepage.html">
+                    <img class="logo-img" src="../image/bot_detector_logo.svg"/>
+                </a>
             </div>
             <div class="nav-list-container">
                 <ul class="menu" id="menu">
@@ -112,7 +114,7 @@
     </div>
     <div class="detection-result-container">
         <div class="detection-result">
-            <p>This text is mostly likely to be written by a <b class="result-classification"></b>. There is a <b class="probability"></b> probability that this text was written by a <b class="other-classification"></b>.</p>
+            <p>This text is most likely to be written by a <b class="result-classification"></b>. There is a <b class="probability"></b> probability that this text was written by a <b class="other-classification"></b>.</p>
         </div>
     </div>
     <footer class="pageFooter" id="pageFooter">
@@ -124,10 +126,3 @@
 </body>
 
 </html>
-
-<!-- detectionResult = document.querySelector(".detection-result")
-                        resultText = document.querySelector(".result-txt")
-                        classification = ""
-                        percentage = ""
-                        detectionResult.style.display = "block"
-                        resultText.innerText = "This text is most likely to be written by a ____. There is a " + percentage + " that this text was written by a " + "."   -->

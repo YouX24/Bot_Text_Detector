@@ -19,11 +19,15 @@ body {
 }
 
 .navbar-container {
-    background-color: #4e77c2;
+    background-color: #6794e7;
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+}
+
+.logo-img { 
+    width: 3rem;
 }
 
 .what-we-can-do {
@@ -51,7 +55,6 @@ h2 {
     margin-top: auto;
     width: 100%;
     text-align: center;
-    background-color: #333;
     color: white;
 }
 

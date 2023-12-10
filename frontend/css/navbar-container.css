@@ -1,6 +1,6 @@
 .navbar-container {
     justify-content: space-between;
-    padding: .5rem;
+    padding: .5rem 2rem .5rem 1rem;
 }
 
 nav {
@@ -37,7 +37,7 @@ nav {
 
 .menu a {
     text-decoration: none;
-    color: black;
+    color: #333;
     font-weight: bold;
     font-size: 15px;
     font-family: "Verdana", sans-serif;
