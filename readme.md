@@ -11,4 +11,4 @@
     For MAC users: `python3 main.py`
 
 ## Start Frontend
-1. Use VS Code Live Share extension or open `../Bot_Text_Detector/frontend/html/homepage.html` via File Explorer / Finder
+1. Use VS Code Live Server extension or open `../Bot_Text_Detector/frontend/html/homepage.html` via File Explorer / Finder
