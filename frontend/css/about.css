@@ -40,9 +40,9 @@ h2 {
 .submit {
     text-align: center;
     color:rgb(17, 17, 221);
-    font-size: 18px; /* Adjust the font size to make it smaller */
-    padding: 2rem; /* Adjust the padding to make the block smaller */
-    margin: 2rem; /* Adjust the margin to make the block smaller */
+    font-size: 18px;
+    padding: 2rem;
+    margin: 2rem;
     border-style: solid;
 }
 
