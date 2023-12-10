@@ -2,7 +2,7 @@
 
 ## Install Dependencies
 1. Open a terminal and navigate to folder `../Bot_Text_Detector`
-2. Run this command to install dependencies `pip install pandas nltk flask flask-cors scikit-learn unidecode tensorflow`
+2. Run this command to install dependencies `pip install pandas nltk flask flask-cors scikit-learn unidecode tensorflow keras`
     For MAC users: `pip3 install pandas nltk flask flask-cors scikit-learn unidecode tensorflow keras`
     Note: Ensure that a version of Python 3.11 is installed. Versions of Python 3.12 may cause compatibility issues with Tensorflow.
 ## Start Backend Server
