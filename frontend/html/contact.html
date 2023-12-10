@@ -40,26 +40,31 @@
                 get back to you as soon as possible!</div>
 
             <form method="post" action="javascript:void(0);">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-
-                <label for="organization">Organization:</label>
-                <input type="text" id="organization" name="organization"><br>
-
-                <label for="role">Role:</label>
-                <input type="text" id="role" name="role"><br>
-
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required><br>
-
-                <label for="problem">Problem:</label>
-                <textarea id="problem" name="problem" rows="4" required></textarea><br>
-
+                <div class="input-container">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="organization">Organization:</label>
+                    <input type="text" id="organization" name="organization"><br>
+                </div>
+                <div class="input-container">
+                    <label for="role">Role:</label>
+                    <input type="text" id="role" name="role"><br>
+                </div>
+                <div class="input-container">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="problem">Problem:</label>
+                    <textarea id="problem" name="problem" rows="4" required></textarea><br>
+                </div>
                 <button type="submit" id="submitBtn">Submit</button>
-
             </form>
             <script>
                 document.getElementById("submitBtn").addEventListener("click", function () {
@@ -82,12 +87,12 @@
         <div class="confirmation-message" id="confirmation-message">
             Thank you for submitting! We will help you solve it soon.
         </div>
-
-
-
-
     </div>
-
+    <footer class="pageFooter" id="pageFooter">
+        <p class="footer">“The best AI checker”</p>
+        <p class="footer">Copyright © 2023 HKX All rights reserved.</p>
+        <p class="footer"><a class="suggestionw" id="suggestionw" href="contact.html" target="_blank">Having suggestions? Tell us!</a></p>
+    </footer>
 </body>
 
 </html>

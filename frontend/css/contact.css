@@ -1,16 +1,24 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-position: center center;
     background: linear-gradient(180deg, #e8eff4, #a5bdcf);
-}
-.navbar-container .logo img {
-    width: 100px; /* Adjust the width of the logo */
-    height: auto;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-attachment: fixed;
+    position: relative;
+    background-size: cover;
+    margin: 0;
 }
 
 .contact-container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 50px 0;
 }
 
@@ -19,15 +27,16 @@ body {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
-    width: 70%;
-    margin: 0 auto;
 }
-.title{
+
+.title {
     font-size: 30px;
     font-weight: bold;
     color: #333;
     border-bottom: solid 1px #d9e0e6;
+    margin-bottom: 1rem;
 }
+
 .subtitle{
     font-size: 17px;
     font-family: serif;
@@ -36,18 +45,24 @@ body {
 }
 
 form {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.input-container {
+    width: 90%;
+}
+
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 50%;
+input, textarea {
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -71,6 +86,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #555;
 }
+
 /* CSS for the confirmation message */
 .confirmation-message {
     display: none; 
@@ -79,11 +95,33 @@ button[type="submit"]:hover {
     text-align: center;
     padding: 30px;
     position: fixed;
-    bottom: 0;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 999;
     border-radius: 5px;
 }
 
+.pageFooter {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    color: white;
+}
 
+.pageFooter > p {
+    margin: 5px;
+    font-size: small;
+}
+
+.suggestionw {
+    color: #ff5733; 
+    text-decoration: none;
+}
+
+.question {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
