@@ -1,18 +1,11 @@
-# import tensorflow as tf
 import tensorflow as tf
 import pandas as pd
-import csv
-import re
 import nltk
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.model_selection import train_test_split
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from nltk.sentiment import SentimentIntensityAnalyzer
-nltk.download(["vader_lexicon", "punkt", "stopwords", "averaged_perceptron_tagger", "cmudict"])
 from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.sentiment import SentimentIntensityAnalyzer
+nltk.download(["vader_lexicon", "punkt", "stopwords", "averaged_perceptron_tagger", "cmudict"])
 
 
 # Load the external dataset using Pandas + add heading to each column
@@ -65,10 +58,9 @@ training_features = pd.concat([training_text_df, training_data[["text_length", "
 testing_features = pd.concat([testing_text_df, testing_data[["text_length", "unique_words", "punctuation", "sia_neg", "sia_neu", "sia_pos", "avg_sent_len", "kincaid_score"]]], axis=1)
 
 # Train model
-# for many tasks, 1-3 layers of RRN is good
 model = Sequential()
-model.add(Dense(128, activation='relu', name="layer1")) # a layer of dense neural networks consisting on 128, every neuron is receiving input from all previous neurons
-model.add(Dense(128, activation='relu', name="layer2"))  # a layer of dense neural networks consisting on 128, every neuron is receiving input from all previous neurons
+model.add(Dense(8, activation='relu', name="layer1")) # a layer of dense neural networks consisting on 128, every neuron is receiving input from all previous neurons
+model.add(Dense(8, activation='relu', name="layer2"))  # a layer of dense neural networks consisting on 128, every neuron is receiving input from all previous neurons
 model.add(Dense(1, activation="sigmoid", name="layer3")) # maps input to a probability. 1 or 0
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
@@ -77,4 +69,4 @@ model.fit(training_features, training_targets, epochs=5, batch_size=32, validati
 
 model.evaluate(testing_features, testing_targets)
 
-model.save("bot_human_text_detector.h5")
+model.save("bot_human_text_detector_model.h5")

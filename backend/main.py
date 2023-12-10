@@ -1,17 +1,10 @@
 import pandas as pd
-import csv
 import re
 import nltk
 nltk.download(["vader_lexicon", "punkt", "stopwords", "averaged_perceptron_tagger", "cmudict"])
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import tensorflow as tf
 from keras.models import load_model
-import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from nltk.sentiment import SentimentIntensityAnalyzer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -73,9 +66,9 @@ def getKincaidScore(text):
     kincaid_score = 0.39 * (num_words / num_sentences) + 11.8 * (syllables / num_words) - 15.59
     return kincaid_score
 
+
 # load the model
 model = load_model('bot_human_text_detector.h5')
-
 
 
 # API
@@ -118,7 +111,7 @@ def text_detection():
     text_extracted_features = vectorizer.fit_transform(df["text"])
 
     # add padding to the extracted features (need padding inorder for consistency and for input text features to work with the model)
-    padded_extracted_features = tf.keras.utils.pad_sequences(text_extracted_features.toarray(), maxlen=10000, dtype="float32", padding="post", value=0.0)
+    padded_extracted_features = pad_sequences(text_extracted_features.toarray(), maxlen=10000, dtype="float32", padding="post", value=0.0)
     
     # convert extracted features into a dataframe
     extract_features_df = pd.DataFrame(padded_extracted_features)
