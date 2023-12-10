@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-position: center center;
-    background: linear-gradient(180deg, #e8eff4, #a5bdcf);
+    background: linear-gradient(to right, #b6fbff, #83a4d4);
     padding: 0;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -12,6 +12,14 @@ body {
     position: relative;
     background-size: cover;
     margin: 0;
+}
+
+.navbar-container {
+    background-color: #4e77c2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
 }
 
 .contact-container {

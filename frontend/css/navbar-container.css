@@ -1,7 +1,6 @@
 .navbar-container {
     justify-content: space-between;
-    padding: 20px;
-    border-bottom: 2px solid rgb(167, 191, 199);;
+    padding: .5rem;
 }
 
 nav {
@@ -17,7 +16,7 @@ nav {
 /* Style for the logo */
 .logo a {
     text-decoration: none;
-    color: #a29c9c;
+    color: black;
     font-weight: bold;
     font-size: 30px;
     font-family: "Georgia", serif;
@@ -38,7 +37,7 @@ nav {
 
 .menu a {
     text-decoration: none;
-    color: #969191;
+    color: black;
     font-weight: bold;
     font-size: 15px;
     font-family: "Verdana", sans-serif;
@@ -46,7 +45,7 @@ nav {
 }
 
 .menu a:hover {
-    color: #007BFF;
+    color: white;
 
 }
 
