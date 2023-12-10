@@ -98,6 +98,33 @@ body {
     background-color: #0056b3;
 }
 
+.detection-result-container {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detection-result {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.result-classification {
+    color: #33b864;
+}
+
+.probability {
+    color: #FFA500;
+}
+
+.other-classification {
+    color: #0047ab;
+}
+
 .pageFooter {
     margin-top: auto;
     width: 100%;

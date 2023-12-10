@@ -39,7 +39,7 @@
         <div class="left-section">
             <p class="section-heading"> More than an AI detector</p>
             <p class="section-heading"> Preserve what's human.</p>
-            <p class="section-content">Check out our products and get started 👉.</p>
+            <p class="section-content">Check out our product and get started 👉</p>
         </div>
         <div class="right-section">
             <p class="question">Was this text written by a human or AI?</p>
@@ -57,7 +57,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             const textInput = document.querySelector(".text-input");
             const checkButton = document.getElementById("checkButton");
@@ -85,16 +84,35 @@
                     }, 10000);
                 }
                 else {
-                    console.log(typeof inputValue)
                     postData("http://127.0.0.1:5000/detection", { text: inputValue }).then((data) => {
-                        console.log(data);
+                        botPercentage = Math.ceil(parseFloat(data["bot"])*100);
+                        humanPercentage = 100 - botPercentage
+
+                        detectionResult = document.querySelector(".detection-result")
+                        resultClass = document.querySelector(".result-classification")
+                        probabilityTxt = document.querySelector(".probability")
+                        otherClass = document.querySelector(".other-classification")
+                        detectionResult.style.display = "block"
+
+                        if (botPercentage > humanPercentage) {
+                            resultClass.innerText = "bot"
+                            probabilityTxt.innerText = humanPercentage + "%"
+                            otherClass.innerText = "human"
+                        } else {
+                            resultClass.innerText = "human"
+                            probabilityTxt.innerText = botPercentage + "%"
+                            otherClass.innerText = "bot"
+                        }
                     });
                 }
             });
         </script>
-        
     </div>
-
+    <div class="detection-result-container">
+        <div class="detection-result">
+            <p>This text is mostly likely to be written by a <b class="result-classification"></b>. There is a <b class="probability"></b> probability that this text was written by a <b class="other-classification"></b>.</p>
+        </div>
+    </div>
     <footer class="pageFooter" id="pageFooter">
         <p class="footer">“The best AI checker”</p>
         <p class="footer">Copyright © 2023 HKX All rights reserved.</p>
@@ -104,3 +122,10 @@
 </body>
 
 </html>
+
+<!-- detectionResult = document.querySelector(".detection-result")
+                        resultText = document.querySelector(".result-txt")
+                        classification = ""
+                        percentage = ""
+                        detectionResult.style.display = "block"
+                        resultText.innerText = "This text is most likely to be written by a ____. There is a " + percentage + " that this text was written by a " + "."   -->
